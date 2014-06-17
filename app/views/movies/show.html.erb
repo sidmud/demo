@@ -1,0 +1,25 @@
+	<h1>Name</h1>
+	<%= @movies.name %>
+	<br>
+	<h2>Songs</h2>
+	<% @movies.songs.each do |song| %>
+		<br>
+		<table>
+		<tr><td><h3>Name</h3></td><td><h3>Composer</h3></td></tr>
+		<tr>
+		<td><%= song.name %></td>
+		<td><%= song.composer%></td>
+		</table>
+	<%end%>
+	<h2>Cast</h2>
+	<% @movies.actors.each do |actor| %>
+	<%= actor.name %><br>
+	<%end%>
+	<h2> RATING </h2>
+	<% @movies.ratings.each do |rating|%>
+		<%= rating.stars %>
+	<%end%>
+
+
+
+

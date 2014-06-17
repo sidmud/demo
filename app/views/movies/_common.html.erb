@@ -1,0 +1,28 @@
+<%=simple_nested_form_for @movies do |f| %>
+  <%=f.input :name, label: 'NAME' %>
+  <h2>SONGS</h2>
+
+    <%=f.fields_for :songs do |song_form| %>
+    <%=song_form.input :name %>
+    <%=song_form.input :composer%>
+    <%=song_form.link_to_remove 'Delete'%>
+    <%end%>
+    <%=f.link_to_add "Add Song", :songs%>
+<br><h2>CAST</h2>i
+    <%=f.fields_for :actors do |actor_form| %>
+      <%=actor_form.input :name%>
+      <%=actor_form.link_to_remove "Remove this actor"%>
+  <%end%>
+    <%=f.link_to_add "Add Actor", :actors%>
+<br>
+<br><br>
+	<%if user_signed_in? %>
+		<%=f.fields_for :ratings do |rating_form|%>
+			<%rating_form.input :stars, collection: 0..5 %> 
+		<%end%>
+	<%end%>
+	<%=f.button :submit%>
+<%end%>
+<br><br><br>
+<%=link_to "back", movies_path%>
+

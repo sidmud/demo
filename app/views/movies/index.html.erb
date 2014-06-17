@@ -1,0 +1,15 @@
+<h1> Welcome to nakliDB </h1>
+
+<table>
+	<tr>
+		<th>MOVIES</th>
+	</tr>
+	<% @movies.each do |movie| %>
+	<tr>
+	<td><%=movie.id%></td>
+	<td><%=link_to movie.name, movie_path(movie)%></td>
+	<td><%=link_to 'Edit', edit_movie_path(movie)%></td>
+	</tr>
+	<%end%>
+	<tr><%=link_to "Create New Movie", movies_path(@movies), method: :create%>
+</table>
